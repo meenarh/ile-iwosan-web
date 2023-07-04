@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-storybook": "npx chromatic --project-token=chpt_4a830c572ef0a05"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.0.10",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
