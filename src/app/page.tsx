@@ -5,19 +5,19 @@ import Header from "./(components)/Header";
 import Hospitals from "./(components)/Hospitals";
 import About from "./(components)/About";
 import Strip from "./(components)/Strip";
-import Reviews from "./(components)/Reviews";
+import Review from "./(components)/Review";
 
 type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div className="max-w-full justify-center">
+    <div className="max-w-full justify-center overflow-x-hidden">
       <NavBar />
       <Header />
       <Hospitals />
       <About />
       <Strip />
-      <Reviews />
+      <Review />
       <Footer />
     </div>
   );
