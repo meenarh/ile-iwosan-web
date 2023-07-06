@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import Link from "next/link";
 import React from "react";
 
@@ -7,9 +8,7 @@ const NavBar = (props: Props) => {
   return (
     <div>
       <nav className="md:py-5 py-2 md:px-20 px-10 flex flex-1">
-        <h3 className="text-2xl font-bold text-black">
-          <span className="text-blue">Ilé</span>-Íwösàń
-        </h3>
+        <Logo />
 
         <div className="flex flex-1 justify-end">
           <ul className="flex flex-1 justify-end gap-6">
