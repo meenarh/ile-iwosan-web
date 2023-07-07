@@ -22,7 +22,7 @@ const NavBar = (props: Props) => {
             </li>
             <li className="pt-1">
               <Link
-                href="/about"
+                href="#about"
                 className="text-sm font-medium text-grey active:text-black"
               >
                 About Us

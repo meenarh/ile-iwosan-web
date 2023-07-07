@@ -5,7 +5,6 @@ import Header from "./(components)/Header";
 import Hospitals from "./(components)/Hospitals";
 import About from "./(components)/About";
 import Strip from "./(components)/Strip";
-import Review from "./(components)/Review";
 
 type Props = {};
 
@@ -17,7 +16,6 @@ const page = (props: Props) => {
       <Hospitals />
       <About />
       <Strip />
-      <Review />
       <Footer />
     </div>
   );

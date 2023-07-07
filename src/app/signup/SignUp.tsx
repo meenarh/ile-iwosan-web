@@ -31,10 +31,10 @@ const SignUp = (props: Props) => {
           </p>
 
           <div className="py-10 flex flex-row gap-5">
-            <button className="p-4 border-2 border-gray rounded-lg text-black text-sm">
+            <button className="md:p-4 p-2 border-2 border-gray rounded-lg text-black text-sm">
               Continue with Google
             </button>
-            <button className="p-4 border-2 border-gray rounded-lg text-black text-sm">
+            <button className="md:p-4 p-2 border-2 border-gray rounded-lg text-black text-sm">
               Continue with Facebook
             </button>
           </div>
@@ -47,7 +47,7 @@ const SignUp = (props: Props) => {
               <input
                 type="text"
                 placeholder="e.g John Doe"
-                className="p-4 border-2 border-gray md:w-[600px] w-[300px] rounded-lg placeholder:text-sm placeholder:text-gray placeholder:font-normal outline-none"
+                className="p-4 border-2 border-gray md:w-[600px] w-[350px] rounded-lg placeholder:text-sm placeholder:text-gray placeholder:font-normal outline-none"
               />
             </div>
 
@@ -58,7 +58,7 @@ const SignUp = (props: Props) => {
               <input
                 type="email"
                 placeholder="example@gmail.com"
-                className="p-4 border-2 border-gray md:w-[600px] w-[300px] rounded-lg placeholder:text-sm placeholder:text-gray placeholder:font-normal outline-none"
+                className="p-4 border-2 border-gray md:w-[600px] w-[350px] rounded-lg placeholder:text-sm placeholder:text-gray placeholder:font-normal outline-none"
               />
             </div>
 
@@ -67,7 +67,7 @@ const SignUp = (props: Props) => {
               <input
                 type="password"
                 placeholder="Enter password"
-                className="p-4 border-2 border-gray md:w-[600px] w-[300px] rounded-lg placeholder:text-sm placeholder:text-gray placeholder:font-normal outline-none"
+                className="p-4 border-2 border-gray md:w-[600px] w-[350px] rounded-lg placeholder:text-sm placeholder:text-gray placeholder:font-normal outline-none"
               />
             </div>
 
@@ -78,7 +78,7 @@ const SignUp = (props: Props) => {
             </div>
           </form>
         </div>
-      N</div>
+      </div>
     </div>
   );
 };
