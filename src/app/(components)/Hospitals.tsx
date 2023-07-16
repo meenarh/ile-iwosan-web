@@ -81,7 +81,7 @@ const Hospitals: React.FC = () => {
       </h2>
 
       {loading ? (
-               <LoadingSpinner color="#0e4ee6" />
+               <LoadingSpinner color="#0E4EE6" />
 
       ) : (
         <div className="grid grid-cols-4 gap-10 py-10">
