@@ -7,7 +7,7 @@ type Props = {};
 const Book = (props: Props) => {
   return (
     <div className="max-w-full justify-center overflow-x-hidden">
-      <NavBar />
+      <NavBar isLoggedIn={false} />
       <div className="flex flex-row">
         <Image
           src="/images/signup.png"
