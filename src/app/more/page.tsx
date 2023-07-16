@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import { fetchProviders } from '@/api/hospitals'; // Import the fetchProviders function from the separate file
 import { CSVLink } from 'react-csv';
