@@ -22,7 +22,6 @@ const ExploreMore = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchProviders();
-      console.log(response);
       
       if (response && response.status === 'success' && response.data) {
         const data = response.data;
