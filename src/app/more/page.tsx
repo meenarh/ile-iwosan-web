@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import { fetchProviders } from '@/api/hospitals'; // Import the fetchProviders function from the separate file
+import { CSVLink } from 'react-csv';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import Papa from 'papaparse';
 
 type Provider = {
   name: string;
@@ -12,7 +14,7 @@ type Provider = {
 };
 
 const ExploreMore = () => {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [providers, setProviders] = useState<Provider[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,7 +24,7 @@ const ExploreMore = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchProviders();
-      
+
       if (response && response.status === 'success' && response.data) {
         const data = response.data;
         const fetchedProviders: Provider[] = data.map((item: any) => ({
@@ -176,6 +178,46 @@ const ExploreMore = () => {
     }
   };
 
+  const handleExport = () => {
+    const csvData = currentProviders.map((provider) => ({
+      Name: provider.name,
+      Address: provider.address,
+    }));
+
+    const csvHeaders = [
+      { label: 'Name', key: 'Name' },
+      { label: 'Address', key: 'Address' },
+    ];
+
+    const csv = Papa.unparse({
+      fields: csvHeaders.map((header) => header.label),
+      data: csvData,
+    });
+
+    const csvDataUri = encodeURI('data:text/csv;charset=utf-8,' + csv);
+
+    const link = document.createElement('a');
+    link.href = csvDataUri;
+    link.target = '_blank';
+    link.download = 'providers.csv';
+    link.click();
+  };
+
+  const handleShare = () => {
+    const emailSubject = 'Check out these healthcare providers';
+    const emailBody = `Here are some healthcare providers you might be interested in: \n\n${currentProviders
+      .map((provider) => `${provider.name} - ${provider.address}`)
+      .join('\n')}`;
+
+    const mailtoLink = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
+      emailBody
+    )}`;
+
+    window.location.href = mailtoLink;
+  };
+
+
+
   return (
     <div>
       <NavBar isLoggedIn={false} />
@@ -196,25 +238,28 @@ const ExploreMore = () => {
         </div>
       </div>
       <div className="px-[5rem]">
-      {loading && (
-               <LoadingSpinner color="#0e4ee6" />
-      )}
+        {loading && <LoadingSpinner color="#0e4ee6" />}
         <div className={`grid grid-cols-4 mt-[3%]`}>
           {currentProviders.map((provider, index) => (
             <div className="p-4 shadow-2xl border-1  h-min[25%] flex flex-col" key={index}>
               <div>
-                <Image
-                  src={'https://static.vecteezy.com/system/resources/previews/004/493/181/original/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-free-vector.jpg'}
-                  alt="test" height={100}
-                  width={100} 
+                <img
+                  src={
+                    'https://static.vecteezy.com/system/resources/previews/004/493/181/original/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-free-vector.jpg'
+                  }
+                  alt="test"
                   className="w-full h-[55%] object-cover"
                 />
                 <h3 className="text-xl font-bold mt-2">{provider.name}</h3>
                 <p className="mt-1">{provider.address}</p>
               </div>
               <div className="w-full flex bg-orange">
-                <button className="bg-blue text-white px-4 py-2 basis-1/2">Export</button>
-                <button className="text-white bg-black px-4 py-2 basis-1/2">Share</button>
+                <button className="bg-blue text-white px-4 py-2 basis-1/2" onClick={handleExport}>
+                  Export
+                </button>
+                <button className="text-white bg-black px-4 py-2 basis-1/2" onClick={handleShare}>
+                  Share
+                </button>
               </div>
             </div>
           ))}
