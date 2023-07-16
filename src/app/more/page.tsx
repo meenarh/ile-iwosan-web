@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import NavBar from '../(components)/NavBar';
+import NavBar from '@/components/NavBar';
 import { fetchProviders } from '@/api/hospitals'; // Import the fetchProviders function from the separate file
 import LoadingSpinner from '@/components/LoadingSpinner';
 
@@ -21,7 +21,6 @@ const ExploreMore = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchProviders();
-      console.log(response);
       
       if (response && response.status === 'success' && response.data) {
         const data = response.data;
@@ -178,7 +177,7 @@ const ExploreMore = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar isLoggedIn={false} />
       <div className="max-w-full justify-center">
         <div className="flex flex-col h-[0rem] gap-3 bg-[url(/images/header.png)] bg-cover bg-center bg-no-repeat md:pt-32 md:pb-[300px] px-2">
           <div className="flex items-center relative">
