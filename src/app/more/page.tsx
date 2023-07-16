@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import NavBar from '../(components)/NavBar';
+import Image from 'next/image';
+import NavBar from '@/components/NavBar';
 import { fetchProviders } from '@/api/hospitals'; // Import the fetchProviders function from the separate file
 import LoadingSpinner from '@/components/LoadingSpinner';
 
@@ -178,7 +179,7 @@ const ExploreMore = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar isLoggedIn={false} />
       <div className="max-w-full justify-center">
         <div className="flex flex-col h-[0rem] gap-3 bg-[url(/images/header.png)] bg-cover bg-center bg-no-repeat md:pt-32 md:pb-[300px] px-2">
           <div className="flex items-center relative">
@@ -203,9 +204,10 @@ const ExploreMore = () => {
           {currentProviders.map((provider, index) => (
             <div className="p-4 shadow-2xl border-1  h-min[25%] flex flex-col" key={index}>
               <div>
-                <img
+                <Image
                   src={'https://static.vecteezy.com/system/resources/previews/004/493/181/original/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-free-vector.jpg'}
-                  alt="test"
+                  alt="test" height={100}
+                  width={100} 
                   className="w-full h-[55%] object-cover"
                 />
                 <h3 className="text-xl font-bold mt-2">{provider.name}</h3>
