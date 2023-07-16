@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Logo from "@/components/Logo";
 import Link from "next/link";
-import NavBar from "../(components)/NavBar";
+import NavBar from "../../components/NavBar";
 
 type Props = {};
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import NavBar from "@/app/(components)/NavBar";
+import NavBar from "@/components/NavBar";
 
 type Props = {};
 

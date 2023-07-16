@@ -23,7 +23,7 @@ const Header = (props: Props) => {
           <input
             type="text"
             placeholder="Nigeria"
-            className="w-[650px] rounded-2xl m-auto py-6 px-8 top-10 bg-white shadow-md placeholder:text-sm placeholder:text-deep-gray placeholder-opacity-50 placeholder:first-letter:font-normal placeholder:font-normal placeholder:pl-2 outline-none"
+            className="md:w-[650px] w-[350px] rounded-2xl m-auto py-6 px-8 top-10 bg-white shadow-md placeholder:text-sm placeholder:text-deep-gray placeholder-opacity-50 placeholder:first-letter:font-normal placeholder:font-normal placeholder:pl-2 outline-none"
           />
           <button className="bg-blue text-white absolute z-10 md:left-[920px] py-4 px-5 rounded-lg">Search</button>
         </div>

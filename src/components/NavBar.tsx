@@ -2,9 +2,11 @@ import Logo from "@/components/Logo";
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
+type Props = {
+  isLoggedIn: boolean;
+};
 
-const NavBar = (props: Props) => {
+const NavBar = ({ isLoggedIn }: Props) => {
   return (
     <div>
       <nav className="md:py-5 py-2 md:px-20 px-10 flex flex-1">
@@ -45,9 +47,17 @@ const NavBar = (props: Props) => {
               </Link>
             </li>
             <li>
-              <button className="bg-blue py-2 px-8 rounded-lg text-white m-auto">
-                <Link href='/login'>Get Started</Link>
-              </button>
+              {isLoggedIn ? (
+                <Link href="/profile">
+                  <a className="bg-blue py-2 px-8 rounded-lg text-white m-auto">
+                    Profile
+                  </a>
+                </Link>
+              ) : (
+                <button className="bg-blue py-2 px-8 rounded-lg text-white m-auto">
+                  <Link href="/login">Get Started</Link>
+                </button>
+              )}
             </li>
           </ul>
         </div>
