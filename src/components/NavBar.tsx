@@ -3,17 +3,17 @@ import Link from "next/link";
 import React from "react";
 
 type Props = {
-  isLoggedIn: boolean;
+  // isLoggedIn: boolean;
 };
 
-const NavBar = ({ isLoggedIn }: Props) => {
+const NavBar = ({  }: Props) => {
   return (
     <div>
-      <nav className="md:py-5 py-2 md:px-20 px-10 flex flex-1">
+      <nav className="md:py-5 py-2 md:px-20 px-8 flex flex-1">
         <Logo />
 
         <div className="flex flex-1 justify-end">
-          <ul className="flex flex-1 justify-end gap-6">
+          <ul className="flex flex-1 justify-end md:gap-6 gap-2">
             <li className="pt-1">
               <Link
                 href="/"
@@ -32,7 +32,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
             </li>
             <li className="pt-1">
               <Link
-                href="/explore"
+                href="/more"
                 className="text-sm font-medium text-grey active:text-black"
               >
                 Explore
@@ -40,13 +40,13 @@ const NavBar = ({ isLoggedIn }: Props) => {
             </li>
             <li className="pt-1">
               <Link
-                href="/contact"
+                href="#"
                 className="text-sm font-medium text-grey active:text-black"
               >
                 Contact Us
               </Link>
             </li>
-            <li>
+            {/* <li>
               {isLoggedIn ? (
                 <Link href="/profile">
                   <a className="bg-blue py-2 px-8 rounded-lg text-white m-auto">
@@ -58,7 +58,7 @@ const NavBar = ({ isLoggedIn }: Props) => {
                   <Link href="/login">Get Started</Link>
                 </button>
               )}
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

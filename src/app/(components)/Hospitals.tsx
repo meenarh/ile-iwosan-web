@@ -11,8 +11,6 @@ type Hospital = {
   image: string;
   name: string;
   address: string;
-  rating: number;
-  icon: JSX.Element;
 };
 
 type HospitalItemProps = {
@@ -20,16 +18,13 @@ type HospitalItemProps = {
 };
 
 const HospitalItem: React.FC<HospitalItemProps> = ({
-  hospital: { image, name, address, rating, icon },
+  hospital: { image, name, address },
 }) => (
-  <div className="flex flex-col gap-3">
-    <Image src={image} alt="" width={350} height={230} className="rounded-lg" />
-    <h4 className="text-black font-medium text-xl">{name}</h4>
-    <p className="text-grey text-sm">{address}</p>
-    <p className="text-black font-medium text-sm flex flex-row gap-2">
-      {icon}
-      {rating}
-    </p>
+  <div className="flex flex-col gap-4 shadow-xl md:p-4 p-2 justify-center w-[350px] md:w-full rounded-xl">
+    <Image src={image} alt="hospital" width={350} height={230} className="rounded-md w-[300px] m-auto" />
+    <h4 className="text-black font-medium text-xl capitalize">{name}</h4>
+    <p className="text-grey text-sm capitalize">{address}</p>
+   
   </div>
 );
 
@@ -47,11 +42,9 @@ const Hospitals: React.FC = () => {
           const selectedHospitals = shuffledData
             .slice(0, 8)
             .map((item: any) => ({
-              image: "/images/imgg.avif",
+              image: "/images/hospital.png",
               name: item.name || "",
               address: item.address || "",
-              rating: 4.5,
-              icon: <Star size={20} color="#E18A31" />,
             }));
           setHospitals(selectedHospitals);
         }
@@ -75,7 +68,7 @@ const Hospitals: React.FC = () => {
   };
 
   return (
-    <div className="md:py-10 md:px-20 max-w-full justify-center">
+    <div className="md:py-10 py-5 md:px-20 px-10 max-w-full justify-center">
       <h2 className="text-black text-2xl text-center font-bold">
         Hospitals near you
       </h2>
@@ -84,7 +77,7 @@ const Hospitals: React.FC = () => {
                <LoadingSpinner color="#0E4EE6" />
 
       ) : (
-        <div className="grid grid-cols-4 gap-10 py-10">
+        <div className="grid md:grid-cols-4 grid-rows-1 gap-10 py-10">
           {hospitals.map((hospital, index) => (
             <HospitalItem key={index} hospital={hospital} />
           ))}

@@ -55,7 +55,7 @@ const Strip: React.FC = () => {
     },
   ];
   return (
-    <div className="bg-blue py-10 px-20 max-w-full justify-center flex flex-row gap-16">
+    <div className="bg-blue py-10 px-20 max-w-full justify-center flex md:flex-row flex-col gap-16">
       {strips.map((strip, index) => (
         <StripItem key={index} {...strip} />
       ))}

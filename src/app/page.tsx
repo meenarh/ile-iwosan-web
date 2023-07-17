@@ -11,7 +11,7 @@ type Props = {};
 const page = (props: Props) => {
   return (
     <div className="max-w-full justify-center overflow-x-hidden">
-      <NavBar isLoggedIn={false} />
+      <NavBar />
       <Header />
       <Hospitals />
       <About />
